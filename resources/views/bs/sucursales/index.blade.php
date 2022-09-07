@@ -44,7 +44,7 @@
                                 <form action="{{route('bs.sucursales.destroy', $sucursal)}}" method="POST">
                                     @csrf
                                     @method('delete')
-                                    <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-edit"></i></button>
+                                    <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></button>
                                 </form>
                             </td>
                         </tr>

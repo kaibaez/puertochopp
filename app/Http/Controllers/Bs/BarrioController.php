@@ -16,9 +16,9 @@ class BarrioController extends Controller
      */
     public function index()
     {
-        $barrios = Barrio::all()->join('ciudades','barrios.ciudad_id','= ','cuidades.id');
-        return $barrios;
-        ##return view('bs.barrios.index', compact('barrios'));
+        $barrios = Barrio::all();
+        
+        return view('bs.barrios.index', compact('barrios'));
     }
 
     /**
@@ -40,7 +40,13 @@ class BarrioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'descripcion'   => 'required',
+            'ciudad_id' => 'required',
+            'estado' => 'required',
+        ]);
+        $barrio = Barrio::create($request->all());
+        return redirect()->route('bs.barrios.index')->with('store','Barrio ha sido creado');
     }
 
     /**
@@ -60,9 +66,10 @@ class BarrioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Barrio $barrio)
     {
-        //
+        $ciudades = Ciudad::all()->sortBy('id', SORT_NATURAL | SORT_FLAG_CASE)->pluck('descripcion', 'id');
+        return view('bs.barrios.edit', compact('barrio','ciudades'));
     }
 
     /**
@@ -72,9 +79,17 @@ class BarrioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Barrio $barrio)
     {
-        //
+        $request->validate([
+            'descripcion'   => "required|unique:barrios,descripcion,$barrio->id",
+            'ciudad_id' => 'required',
+            'estado' => 'required',
+        ]);
+
+        $barrio->update($request->all());
+
+        return redirect()->route('bs.barrios.index')->with('update','El barrio ha sido actualizado');
     }
 
     /**
@@ -83,8 +98,9 @@ class BarrioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Barrio $barrio)
     {
-        //
+        $barrio->delete();
+        return redirect()->route('bs.barrios.index')->with('destroy', 'El Barrio se ha eliminado con Éxito');
     }
 }

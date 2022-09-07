@@ -1,16 +1,16 @@
 @extends('adminlte::page')
 
-@section('title', 'Cargos')
+@section('title', 'Secciones')
 
 @section('content_header')
-    <h1>Cargos</h1>
+    <h1>Secciones</h1>
 @stop
 
 @section('content')
 
     <div class="card">
         <div class="card-header">
-            <a href="{{route('rh.cargos.create')}}" class="btn btn-success btn-sm "><i class="fa fa-plus"> Nuevo Cargo</i></a>
+            <a href="{{route('rh.secciones.create')}}" class="btn btn-success btn-sm "><i class="fa fa-plus"> Nueva Secci&oacute;n</i></a>
         </div>
         @if (session('store'))
             <div class="alert alert-success">
@@ -30,21 +30,21 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Cargos</th>
+                        <th>Secciones</th>
                         <th colspan="2">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($cargos as $cargo)
+                    @foreach ($secciones as $seccion)
                         <tr>
-                            <td>{{$cargo->id}}</td>
-                            <td>{{$cargo->descripcion}}</td>
-                            <td width="3px"><a class="btn btn-warning btn-xs" href="{{route('rh.cargos.edit', $cargo)}}"><i class="fa fa-edit"></i></a></td>
+                            <td>{{$seccion->id}}</td>
+                            <td>{{$seccion->descripcion}}</td>
+                            <td width="3px"><a class="btn btn-warning btn-xs" href="{{route('rh.secciones.edit', $seccion)}}"><i class="fa fa-edit"></i></a></td>
                             <td width="3px">
-                                <form action="{{route('rh.cargos.destroy', $cargo)}}" method="POST">
+                                <form action="{{route('rh.secciones.destroy', $seccion)}}" method="POST">
                                     @csrf
                                     @method('delete')
-                                    <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-edit"></i></button>
+                                    <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></button>
                                 </form>
                             </td>
                         </tr>

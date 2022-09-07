@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Rh;
 
 use App\Http\Controllers\Controller;
+use App\Models\Rh\Cargo;
 use Illuminate\Http\Request;
 
 class CargoController extends Controller
@@ -14,7 +15,8 @@ class CargoController extends Controller
      */
     public function index()
     {
-        //
+        $cargos = Cargo::all();
+        return view('rh.cargos.index', compact('cargos'));
     }
 
     /**
@@ -24,7 +26,7 @@ class CargoController extends Controller
      */
     public function create()
     {
-        //
+        return view('rh.cargos.create');
     }
 
     /**
@@ -35,16 +37,21 @@ class CargoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'descripcion'   => 'required',
+            'estado' => 'required',
+        ]);
+        $cargo = Cargo::create($request->all());
+        return redirect()->route('rh.cargos.index')->with('store','Cargo ha sido creada');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  Cargo $cargo
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Cargo $cargo)
     {
         //
     }
@@ -52,34 +59,40 @@ class CargoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int  Cargo $cargo
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Cargo $cargo)
     {
-        //
+        return view('rh.cargos.edit', compact('cargo'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int  Cargo $cargo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Cargo $cargo)
     {
-        //
+        $request->validate([
+            'descripcion'   => "required|unique:cargos,descripcion,$cargo->id",
+            'estado' => 'required',
+        ]);
+        $cargo->update($request->all());
+        return redirect()->route('rh.cargos.index')->with('update','El Cargo ha sido actualizado');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  Cargo $cargo
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Cargo $cargo)
     {
-        //
+        $cargo->delete();
+        return redirect()->route('rh.cargos.index')->with('destroy', 'El Cargo se ha eliminado con Éxito');
     }
 }

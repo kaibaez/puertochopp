@@ -9,8 +9,9 @@
     <div class="card">
         <div class="card-body">
             {!! Form::open(['route'=>'bs.sucursales.store']) !!}
-                @include('bs.sucursales.partials.form')    
+                @include('bs.sucursales.partials.form')
             {!! Form::submit('Crear Sucursal', ['class' => 'btn btn-primary']) !!}
+                @include('bs.sucursales.partials.cancel')  
             {!! Form::close() !!}
         </div>
     </div>

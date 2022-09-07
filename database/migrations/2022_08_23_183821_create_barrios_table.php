@@ -16,7 +16,7 @@ class CreateBarriosTable extends Migration
         Schema::create('barrios', function (Blueprint $table) {
             $table->id();
             $table->string('descripcion',100);
-            $table->foreignId('ciudad_id');
+            $table->foreignId('ciudad_id')->default('1');
             $table->enum('estado',['A','I'])->default('A');        
             $table->timestamps();
 

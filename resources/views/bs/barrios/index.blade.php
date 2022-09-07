@@ -31,20 +31,22 @@
                     <tr>
                         <th>#</th>
                         <th>barrios</th>
+                        <th>ciudad</th>
                         <th colspan="2">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($barrios as $barrio)
                         <tr>
-                            <td>{{$barrio->barrios.id}}</td>
+                            <td>{{$barrio->id}}</td>
                             <td>{{$barrio->descripcion}}</td>
+                            <td>{{$barrio->ciudad->descripcion}}</td>
                             <td width="3px"><a class="btn btn-warning btn-xs" href="{{route('bs.barrios.edit', $barrio)}}"><i class="fa fa-edit"></i></a></td>
                             <td width="3px">
                                 <form action="{{route('bs.barrios.destroy', $barrio)}}" method="POST">
                                     @csrf
                                     @method('delete')
-                                    <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-edit"></i></button>
+                                    <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></button>
                                 </form>
                             </td>
                         </tr>

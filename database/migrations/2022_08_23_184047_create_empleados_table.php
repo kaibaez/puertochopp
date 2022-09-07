@@ -18,20 +18,20 @@ class CreateEmpleadosTable extends Migration
             $table->string('nombres',200);
             $table->string('apellidos',200);
             $table->string('documento',20);
-            $table->string('direcciones',200);
-            $table->foreignId('pais_id');
-            $table->foreignId('ciudad_id');
-            $table->foreignId('barrio_id');
+            $table->string('direcciones',200)->nullable();
+            $table->foreignId('pais_id')->nullable();
+            $table->foreignId('ciudad_id')->nullable();
+            $table->foreignId('barrio_id')->nullable();
             $table->date('fec_nacimiento');
-            $table->integer('salario');
-            $table->integer('salario_ips');
-            $table->integer('anticipo');
+            $table->integer('salario')->nullable();
+            $table->integer('salario_ips')->nullable();
+            $table->integer('anticipo')->nullable();
 
-            $table->date('fec_ingreso');
+            $table->date('fec_ingreso')->nullable();
 
-            $table->foreignId('cargo_id');
-            $table->foreignId('seccion_id');
-            $table->foreignId('sucursal_id');
+            $table->foreignId('cargo_id')->nullable();
+            $table->foreignId('seccion_id')->nullable();
+            $table->foreignId('sucursal_id')->nullable();
 
 
             $table->enum('estado',['A','I'])->default('A');

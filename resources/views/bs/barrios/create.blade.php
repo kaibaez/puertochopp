@@ -1,16 +1,17 @@
 @extends('adminlte::page')
 
-@section('title', 'Sucursales | Crear')
+@section('title', 'Barrios | Crear')
 @section('content_header')
-    <h2>Creaci&oacute;n de Sucursales</h2>
+    <h2>Creaci&oacute;n de arrios</h2>
 @stop
 
 @section('content')    
     <div class="card">
         <div class="card-body">
-            {!! Form::open(['route'=>'bs.sucursales.store']) !!}
-                @include('bs.sucursales.partials.form')    
-            {!! Form::submit('Crear Sucursal', ['class' => 'btn btn-primary']) !!}
+            {!! Form::open(['route'=>'bs.barrios.store']) !!}
+                @include('bs.barrios.partials.form')    
+            {!! Form::submit('Crear barrio', ['class' => 'btn btn-primary']) !!}
+            @include('bs.barrios.partials.cancel')   
             {!! Form::close() !!}
         </div>
     </div>

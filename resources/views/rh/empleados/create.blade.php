@@ -11,7 +11,9 @@
             {!! Form::open(['route'=>'rh.empleados.store']) !!}
                 @include('rh.empleados.partials.form')    
             {!! Form::submit('Crear Empleado', ['class' => 'btn btn-primary']) !!}
-            {!! Form::close() !!}
+            @include('rh.empleados.partials.cancel')
+
+            {!! Form::close() !!}   
         </div>
     </div>
 

@@ -14,4 +14,5 @@ class Sucursal extends Model
         'estado',
     ];
     use HasFactory;
+
 }

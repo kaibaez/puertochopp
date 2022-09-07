@@ -288,6 +288,7 @@ return [
             'submenu' => [
                 [
                     'text' => 'Empleados',
+                    'icon'    => 'fas fa-',
                     'url'  => 'empleados',
                 ],
                 [
@@ -297,6 +298,22 @@ return [
                 [
                     'text' => 'Cargos',
                     'url'  => 'cargos',
+                ],
+                [
+                    'text' => 'Marcaciones',
+                    'url'  => 'marcaciones',
+                ],
+                [
+                    'text' => 'Recibos Salariales',
+                    'url'  => 'Recibos',
+                ],
+                [
+                    'text' => 'Sueldos, Jornales, Descuentos',
+                    'url'  => 'sueldos',
+                ],
+                [
+                    'text' => 'Horas Extras',
+                    'url'  => 'horasextras',
                 ],
             ],
         ],

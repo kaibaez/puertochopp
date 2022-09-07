@@ -21,15 +21,30 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
-Auth::routes();
+//Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 ## Recursos Humanos Rh ---------------------------------
-Route::resource('cargos', CargoController::class)->names('rh.cargos');
+
+
+
+
+
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+    Route::resource('cargos', CargoController::class)->names('rh.cargos');
 Route::resource('seccion', SeccionController::class)->names('rh.secciones');
 Route::resource('empleados', EmpleadoController::class)->names('rh.empleados');
 
@@ -40,7 +55,4 @@ Route::resource('pais', PaisController::class)->names('bs.paises');
 Route::resource('ciudad', CiudadController::class)->names('bs.ciudades');
 Route::resource('barrios', BarrioController::class)->names('bs.barrios');
 
-
-
-
-
+});

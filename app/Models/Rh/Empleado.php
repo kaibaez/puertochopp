@@ -10,8 +10,18 @@ class Empleado extends Model
     protected $table = 'empleados';
 
     protected $fillable = [
-        'nombres',
-        'apellidos',
+        'nombres'  ,
+            'apellidos'  ,
+            'documento',
+            'direcciones'  ,
+            'pais_id',    
+            'ciudad_id',    
+            'barrio_id',  
+            'fec_nacimiento',
+            'salario',
+            'salario_ips',
+            'anticipo',
+            'estado',
     ];
     use HasFactory;
 }

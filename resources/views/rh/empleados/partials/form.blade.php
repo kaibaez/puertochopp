@@ -63,13 +63,13 @@
     <div class="col-4">
         <div class="form-group">
             {!! Form::label('ciudad_id', 'Ciudad de Residencia') !!}
-            {!! Form::select('ciudad_id',$paises, null, ['class' => 'form-control', 'placeholder' => 'Ciudad de Residencia']) !!}        
+            {!! Form::select('ciudad_id',$ciudades, null, ['class' => 'form-control', 'placeholder' => 'Ciudad de Residencia']) !!}        
         </div>    
     </div>
     <div class="col-4">
         <div class="form-group">
             {!! Form::label('barrio_id', 'Barrio de Residencia') !!}
-            {!! Form::select('barrio_id',$paises, null, ['class' => 'form-control', 'placeholder' => 'Barrio de Residencia']) !!}
+            {!! Form::select('barrio_id',$barrios, null, ['class' => 'form-control', 'placeholder' => 'Barrio de Residencia']) !!}
         </div>
     </div>
 </div>
@@ -139,7 +139,7 @@
             <div class="col-4">
                 <div class="form-group">
                     {!! Form::label('seccion_id', 'Secci&oacute;n del Empleado') !!}
-                    {!! Form::select('seccion_id',$paises, null, ['class' => 'form-control', 'placeholder' => 'Secci&oacute;n del Empleado']) !!}
+                    {!! Form::select('seccion_id',$secciones, null, ['class' => 'form-control', 'placeholder' => 'Secci&oacute;n del Empleado']) !!}
                 </div>
             </div>
             <div class="col-4"> 

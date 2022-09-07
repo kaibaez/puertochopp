@@ -15,4 +15,8 @@ class Barrio extends Model
     ];
 
     use HasFactory;
+
+    public function ciudad (){
+        return $this->hasOne(Ciudad::class,'id','ciudad_id');
+    }
 }

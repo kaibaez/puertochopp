@@ -11,6 +11,7 @@
             {!! Form::open(['route'=>'rh.cargos.store']) !!}
                 @include('rh.cargos.partials.form')    
             {!! Form::submit('Crear Cargo', ['class' => 'btn btn-primary']) !!}
+                @include('rh.cargos.partials.cancel')  
             {!! Form::close() !!}
         </div>
     </div>

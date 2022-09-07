@@ -11,6 +11,7 @@
             {!! Form::model($sucursal, ['route'=> ['bs.sucursales.update',$sucursal], 'method' => 'put']) !!}
                 @include('bs.sucursales.partials.form')   
                 {!! Form::submit('Actualizar Sucursal', ['class' => 'btn btn-primary']) !!}
+                @include('bs.sucursales.partials.cancel')  
             {!! Form::close() !!}
         </div>
     </div>

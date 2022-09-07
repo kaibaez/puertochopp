@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Bs;
 
 use App\Http\Controllers\Controller;
+use App\Models\Bs\Sucursal;
 use Illuminate\Http\Request;
 
 class SucursalController extends Controller
@@ -14,7 +15,9 @@ class SucursalController extends Controller
      */
     public function index()
     {
-        //
+        $sucursales = Sucursal::all();
+        
+        return view('bs.sucursales.index', compact('sucursales'));
     }
 
     /**
@@ -24,7 +27,7 @@ class SucursalController extends Controller
      */
     public function create()
     {
-        //
+        return view('bs.sucursales.create');
     }
 
     /**
@@ -35,16 +38,22 @@ class SucursalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'descripcion'   => 'required',
+            'estado' => 'required',
+        ]);
+        $sucursal = Sucursal::create($request->all());
+
+        return redirect()->route('bs.sucursales.index')->with('store','Sucursal ha sido creada');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  Sucursal $sucursal
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Sucursal $sucursal)
     {
         //
     }
@@ -52,34 +61,42 @@ class SucursalController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int  Sucursal $sucursal
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Sucursal $sucursal)
     {
-        //
+        return view('bs.sucursales.edit', compact('sucursal'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int  Sucursal $sucursal
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Sucursal $sucursal)
     {
-        //
+        $request->validate([
+            'descripcion'   => "required",
+            'estado' => 'required',
+        ]);
+
+        $sucursal->update($request->all());
+
+        return redirect()->route('bs.sucursales.index')->with('update','El barrio ha sido actualizado');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  Sucursal $sucursal
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Sucursal $sucursal)
     {
-        //
+        $sucursal->delete();
+        return redirect()->route('bs.sucursales.index')->with('destroy', 'La Sucursal se ha eliminado con Éxito');
     }
 }

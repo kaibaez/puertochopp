@@ -11,6 +11,7 @@
             {!! Form::model($cargo, ['route'=> ['rh.cargos.update',$cargo], 'method' => 'put']) !!}
                 @include('rh.cargos.partials.form')   
                 {!! Form::submit('Actualizar Cargo', ['class' => 'btn btn-primary']) !!}
+                @include('rh.cargos.partials.cancel')  
             {!! Form::close() !!}
         </div>
     </div>
