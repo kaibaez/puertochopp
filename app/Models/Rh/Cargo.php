@@ -11,6 +11,9 @@ class Cargo extends Model
 
     protected $fillable = [
         'descripcion',
+        'acargo',
+        'descripcion_cargp',
+        'funciones_cargo',
         'estado',
     ];
     use HasFactory;

@@ -42,7 +42,7 @@ class SeccionController extends Controller
             'estado' => 'required',
         ]);
         $seccion = Seccion::create($request->all());
-        return redirect()->route('rh.secciones.index')->with('store','Secci&oacute;n ha sido creada');
+        return redirect()->route('rh.secciones.index')->with('store','La Sección ha sido creada');
     }
 
     /**

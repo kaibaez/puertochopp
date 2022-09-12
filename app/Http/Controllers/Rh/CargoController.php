@@ -26,7 +26,8 @@ class CargoController extends Controller
      */
     public function create()
     {
-        return view('rh.cargos.create');
+        $cargos = Cargo::all()->sortBy('id', SORT_NATURAL | SORT_FLAG_CASE)->pluck('descripcion', 'id');
+        return view('rh.cargos.create', compact('cargos'));
     }
 
     /**
@@ -42,7 +43,7 @@ class CargoController extends Controller
             'estado' => 'required',
         ]);
         $cargo = Cargo::create($request->all());
-        return redirect()->route('rh.cargos.index')->with('store','Cargo ha sido creada');
+        return redirect()->route('rh.cargos.index')->with('store','El Cargo ha sido creado');
     }
 
     /**
@@ -63,8 +64,9 @@ class CargoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Cargo $cargo)
-    {
-        return view('rh.cargos.edit', compact('cargo'));
+    {   
+        $cargos = Cargo::all()->sortBy('id', SORT_NATURAL | SORT_FLAG_CASE)->pluck('descripcion', 'id');
+        return view('rh.cargos.edit', compact('cargo','cargos'));
     }
 
     /**

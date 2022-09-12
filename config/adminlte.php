@@ -288,12 +288,14 @@ return [
             'submenu' => [
                 [
                     'text' => 'Empleados',
-                    'icon'    => 'fas fa-',
+                    'icon'    => 'fa fa-user-times',
                     'url'  => 'empleados',
                 ],
                 [
                     'text' => 'Secciones',
+                    'icon'    => 'fa fa-share',
                     'url'  => 'seccion',
+                    
                 ],
                 [
                     'text' => 'Cargos',
@@ -314,6 +316,11 @@ return [
                 [
                     'text' => 'Horas Extras',
                     'url'  => 'horasextras',
+                ],
+                [
+                    'text' => 'Notas / Resoluciones',
+                    'icon' => 'fa fa-notes-medical',
+                    'url'  => 'notas',
                 ],
             ],
         ],
@@ -443,6 +450,21 @@ return [
                     'type' => 'js',
                     'asset' => false,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js',
+                ],
+            ],
+        ],
+        'Toastr' => [
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => 'vendor/toastr/toastr.min.css',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/toastr/toastr.min.js',
                 ],
             ],
         ],

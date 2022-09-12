@@ -6,6 +6,7 @@ use App\Http\Controllers\Bs\PaisController;
 use App\Http\Controllers\Bs\SucursalController;
 use App\Http\Controllers\Rh\CargoController;
 use App\Http\Controllers\Rh\EmpleadoController;
+use App\Http\Controllers\Rh\NotasController;
 use App\Http\Controllers\Rh\SeccionController;
 use Illuminate\Support\Facades\Route;
 
@@ -47,6 +48,8 @@ Route::middleware([
     Route::resource('cargos', CargoController::class)->names('rh.cargos');
 Route::resource('seccion', SeccionController::class)->names('rh.secciones');
 Route::resource('empleados', EmpleadoController::class)->names('rh.empleados');
+Route::resource('notas', NotasController::class)->names('rh.notas');
+
 
 
 ##Sistema Base Bs --------------------------------------

@@ -3,28 +3,23 @@
 @section('title', 'Barrios')
 
 @section('content_header')
-    <h1>Barrios</h1>
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-10">
+                <h1>Barrios</h1>
+            </div>
+            <div class="col-sm-2">
+                <a href="{{route('rh.barrios.create')}}" class="btn btn-success btn-sm "><i class="fa fa-plus"> Nuevo Barrio</i></a>
+            </div>
+        </div>
+    </div>
+</section>  
 @stop
 
 @section('content')
 
     <div class="card">
-        <div class="card-header">
-            <a href="{{route('bs.barrios.create')}}" class="btn btn-success btn-sm "><i class="fa fa-plus"> Nueva barrio</i></a>
-        </div>
-        @if (session('store'))
-            <div class="alert alert-success">
-                <strong>{{session('store')}}</strong>	
-            </div>
-        @elseif (session('update'))
-            <div class="alert alert-warning">
-                <strong>{{session('update')}}</strong>	
-            </div>
-        @elseif (session('destroy'))
-            <div class="alert alert-danger">
-                <strong>{{session('destroy')}}</strong>	
-            </div>
-        @endif
         <div class="card-body">
             <table class="table table-striped table-bordered table-hover">
                 <thead>
@@ -58,4 +53,15 @@
             </table>
         </div>
     </div>
+@stop
+@section('js')
+    <script>
+        @if (session('store'))
+            toastr.success("{{session('store')}}")    
+        @elseif (session('update'))
+            toastr.warning("{{session('update')}}")    
+        @elseif (session('destroy'))
+            toastr.error("{{session('destroy')}}")    
+        @endif
+    </script>
 @stop
