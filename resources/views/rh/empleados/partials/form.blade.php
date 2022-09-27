@@ -102,6 +102,28 @@
         </div>
     </div>
 </div>
+
+<div class="card card-red">
+    <div class="card-header">
+        Datos Familiares
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    {!! Form::label('estado_civil', 'Estado Civil') !!}
+                    <div class="form-check">
+                        {!! Form::radio('estado_civil', 'S',null,['class' => 'form-check-input']) !!}Soltero/a &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {!! Form::radio('estado', 'C',null,['class' => 'form-check-input']) !!}Casado/a&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        {!! Form::radio('estado_civil', 'A',null,['class' => 'form-check-input']) !!}Acompañado/a &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {!! Form::radio('estado', 'C',null,['class' => 'form-check-input']) !!}Divorciado/a&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        {!! Form::radio('estado_civil', 'A',null,['class' => 'form-check-input']) !!}Viudo/a &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <div class="card card-info">
     <div class="card-header">
         Sueldos y Anticipos
@@ -173,52 +195,6 @@
     </div>
 </div>
 
-
-<div class="card card-red">
-    <div class="card-header">
-        Datos Familiares
-    </div>
-    <div class="card-body">
-        <div class="row">
-            <div class="col-6">
-               <div class="form-group">
-                    {!! Form::label('fec_ingreso', 'Fec. Ingreso') !!}
-                    {!! Form::date('fec_ingreso',null, ['class' => 'form-control', 'placeholder' => 'Fec. Ingreso']) !!}
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="form-group">
-                    {!! Form::label('estado_civil', 'Estado Civil') !!}
-                    <div class="form-check">
-                        {!! Form::radio('estado_civil', 'S',null,['class' => 'form-check-input']) !!}Soltero/a &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {!! Form::radio('estado', 'C',null,['class' => 'form-check-input']) !!}Casado/a
-                        {!! Form::radio('estado_civil', 'A',null,['class' => 'form-check-input']) !!}Acompañado/a &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {!! Form::radio('estado', 'C',null,['class' => 'form-check-input']) !!}Divorciado/a
-                        {!! Form::radio('estado_civil', 'A',null,['class' => 'form-check-input']) !!}Acompañado/a &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {!! Form::radio('estado', 'C',null,['class' => 'form-check-input']) !!}Divorciado/a
-                    </div>  
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-4">
-                <div class="form-group">
-                    {!! Form::label('cargo_id', 'Cargo del Empleado') !!}
-                    {!! Form::select('cargo_id',$cargos, null, ['class' => 'form-control', 'placeholder' => 'Cargo del Empleado']) !!}
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="form-group">
-                    {!! Form::label('seccion_id', 'Secci&oacute;n del Empleado') !!}
-                    {!! Form::select('seccion_id',$secciones, null, ['class' => 'form-control', 'placeholder' => 'Secci&oacute;n del Empleado']) !!}
-                </div>
-            </div>
-            <div class="col-4"> 
-                <div class="form-group"> 
-                    {!! Form::label('sucursal_id', 'Sucursal del Empleado') !!}
-                    {!! Form::select('sucursal_id',$sucursales, null, ['class' => 'form-control', 'placeholder' => 'Sucursal del Empleado']) !!}
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 
