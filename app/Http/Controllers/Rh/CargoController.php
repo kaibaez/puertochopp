@@ -8,7 +8,16 @@ use Illuminate\Http\Request;
 
 class CargoController extends Controller
 {
-    /**
+    public function __construct()
+    {
+        $this->middleware('can:rh.cargos.index')->only('index');
+        $this->middleware('can:rh.cargos.create')->only('create');
+        $this->middleware('can:rh.cargos.edit')->only('edit','update');
+    }
+    
+    
+    /*
+    *
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response

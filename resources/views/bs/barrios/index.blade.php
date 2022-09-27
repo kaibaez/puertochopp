@@ -10,7 +10,7 @@
                 <h1>Barrios</h1>
             </div>
             <div class="col-sm-2">
-                <a href="{{route('rh.barrios.create')}}" class="btn btn-success btn-sm "><i class="fa fa-plus"> Nuevo Barrio</i></a>
+                <a href="{{route('bs.barrios.create')}}" class="btn btn-success btn-sm "><i class="fa fa-plus"> Nuevo Barrio</i></a>
             </div>
         </div>
     </div>

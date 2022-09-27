@@ -10,7 +10,7 @@
                 <h1>Paises</h1>
             </div>
             <div class="col-sm-2">
-                <a href="{{route('rh.paises.create')}}" class="btn btn-success btn-sm "><i class="fa fa-plus"> Nuevo Pais</i></a>
+                <a href="{{route('bs.paises.create')}}" class="btn btn-success btn-sm "><i class="fa fa-plus"> Nuevo Pais</i></a>
             </div>
         </div>
     </div>

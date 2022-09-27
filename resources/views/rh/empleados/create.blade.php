@@ -8,7 +8,7 @@
 @section('content')    
     <div class="card">
         <div class="card-body">
-            {!! Form::open(['route'=>'rh.empleados.store']) !!}
+            {!! Form::open(['route'=>'rh.empleados.store','files'=>true]) !!}
                 @include('rh.empleados.partials.form')    
             {!! Form::submit('Crear Empleado', ['class' => 'btn btn-primary']) !!}
             @include('rh.empleados.partials.cancel')

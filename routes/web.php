@@ -45,7 +45,7 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
-    Route::resource('cargos', CargoController::class)->names('rh.cargos');
+Route::resource('cargos', CargoController::class)->names('rh.cargos');
 Route::resource('seccion', SeccionController::class)->names('rh.secciones');
 Route::resource('empleados', EmpleadoController::class)->names('rh.empleados');
 Route::resource('notas', NotasController::class)->names('rh.notas');

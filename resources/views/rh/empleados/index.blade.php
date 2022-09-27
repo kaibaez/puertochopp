@@ -26,14 +26,25 @@
                     <tr>
                         <th>#</th>
                         <th>Empleados</th>
-                        <th colspan="2">Acciones</th>
+                        <th>C.I.</th>
+                        <th>Cargo</th>
+                        <th>Foto</th>
+                        <th colspan="4 style="width: 50px;">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($empleados as $empleado)
                         <tr>
-                            <td>{{$empleado->id}}</td> 
-                            <td>{{$empleado->nombres}}  {{$empleado->apellidos}}</td>
+                            <td style="width: 5px;">{{$empleado->id}}</td> 
+                            <td style="width: 250px;">{{$empleado->nombres}}  {{$empleado->apellidos}}</td>
+                            <td style="width: 100px;">{{$empleado->documento}}</td>
+                            <td style="width: 100px;">{{$empleado->cargo->descripcion}}</td>
+                            <td style="width: 20px;">
+                                
+                                    <img class="img-circle" width="60px" src="{{asset('')}}{{$empleado->photo}}" alt="" > 
+                                
+                            </td>
+                            <td width="3px"><a class="btn btn-success btn-xs" href="{{route('rh.empleados.show', $empleado)}}"><i class="fa fa-eye"></i></a></td>
                             <td width="3px"><a class="btn btn-warning btn-xs" href="{{route('rh.empleados.edit', $empleado)}}"><i class="fa fa-edit"></i></a></td>
                             <td width="3px">
                                 <form action="{{route('rh.empleados.destroy', $empleado)}}" method="POST">
@@ -48,6 +59,16 @@
 
                     </tr>
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <th>#</th>
+                        <th>Empleados</th>
+                        <th>C.I.</th>
+                        <th>Cargo</th>
+                        <th>Foto</th>
+                        <th colspan="4">Acciones</th>
+                    </tr>
+                </tfoot>
             </table>
         </div>
     </div>

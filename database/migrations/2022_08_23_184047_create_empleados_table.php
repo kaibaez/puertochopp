@@ -18,7 +18,15 @@ class CreateEmpleadosTable extends Migration
             $table->string('nombres',200);
             $table->string('apellidos',200);
             $table->string('documento',20);
+            $table->string('nro_legajo',20)->nullable();
+            $table->enum('sexo',['M','F','X'])->default('M');
             $table->string('direcciones',200)->nullable();
+            $table->string('otra_direccion',200)->nullable();
+            $table->string('telefono',200)->nullable();
+            $table->enum('estado_civil',['A','C','S','D','V'])->default('S');
+            
+
+            $table->text('photo',400)->nullable();
             $table->foreignId('pais_id')->nullable();
             $table->foreignId('ciudad_id')->nullable();
             $table->foreignId('barrio_id')->nullable();
@@ -33,7 +41,7 @@ class CreateEmpleadosTable extends Migration
             $table->foreignId('seccion_id')->nullable();
             $table->foreignId('sucursal_id')->nullable();
 
-
+            $table->enum('ips',['S','N'])->default('S');
             $table->enum('estado',['A','I'])->default('A');
             $table->timestamps();
 

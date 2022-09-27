@@ -16,9 +16,9 @@ class BarrioController extends Controller
      */
     public function index()
     {
-        $barrios = Barrio::all();
-        
+       $barrios = Barrio::all();
         return view('bs.barrios.index', compact('barrios'));
+        
     }
 
     /**

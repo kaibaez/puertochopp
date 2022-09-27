@@ -10,7 +10,9 @@
                 <h1>Cargos</h1>
             </div>
             <div class="col-sm-2">
-                <a href="{{route('rh.cargos.create')}}" class="btn btn-success btn-sm "><i class="fa fa-plus"> Nuevo Cargo</i></a>
+                @can('rh.cargos.create')
+                <a href="{{route('rh.cargos.create')}}" class="btn btn-success btn-sm "><i class="fa fa-plus"> Nuevo Cargo</i></a>    
+                @endcan
             </div>
         </div>
     </div>

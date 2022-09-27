@@ -10,7 +10,7 @@
                 <h1>Sucursales</h1>
             </div>
             <div class="col-sm-2">
-                <a href="{{route('rh.sucursales.create')}}" class="btn btn-success btn-sm "><i class="fa fa-plus"> Nueva Sucursal</i></a>
+                <a href="{{route('bs.sucursales.create')}}" class="btn btn-success btn-sm "><i class="fa fa-plus"> Nueva Sucursal</i></a>
             </div>
         </div>
     </div>

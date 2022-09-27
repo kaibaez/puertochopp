@@ -64,7 +64,7 @@ return [
     */
 
     'logo' => '<b>Puerto</b>Chopp',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo_img' => 'vendor/adminlte/dist/img/puertoLogo.png',    
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -292,6 +292,16 @@ return [
                     'url'  => 'empleados',
                 ],
                 [
+                    'text' => 'Permissos',
+                    'icon'    => 'fa fa-share',
+                    'url'  => 'permisos',
+                    
+                ],
+                [
+                    'text' => 'Asistencias',
+                    'url'  => 'asistencias',
+                ],
+                [
                     'text' => 'Secciones',
                     'icon'    => 'fa fa-share',
                     'url'  => 'seccion',
@@ -300,10 +310,6 @@ return [
                 [
                     'text' => 'Cargos',
                     'url'  => 'cargos',
-                ],
-                [
-                    'text' => 'Marcaciones',
-                    'url'  => 'marcaciones',
                 ],
                 [
                     'text' => 'Recibos Salariales',
@@ -465,6 +471,26 @@ return [
                     'type' => 'js',
                     'asset' => true,
                     'location' => 'vendor/toastr/toastr.min.js',
+                ],
+            ],
+        ],
+        'Fontawesome' => [
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => 'vendor/fontawesome-free/css/all.min.css',
+                ],
+            ],
+        ],
+        'Ionic' => [
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => '//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css',
                 ],
             ],
         ],

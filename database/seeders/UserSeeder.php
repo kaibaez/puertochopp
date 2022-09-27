@@ -18,18 +18,18 @@ class UserSeeder extends Seeder
             'name' => 'Carlos Báez',
             'email' => 'carlos@proyectosanjose.com.py',
             'password' => bcrypt('crKKbl64'),
-        ]);
+        ])->assignRole('Admin');
 
         User::create([
             'name' => 'Enrique Fleitas',
             'email' => 'enrique@proyectosanjose.com.py',
             'password' => bcrypt('12345'),
-        ]);
+        ])->assignRole('Admin');
 
         User::create([
             'name' => 'Patricia Duarte',
             'email' => 'patricia@proyectosanjose.com.py',
             'password' => bcrypt('12345'),
-        ]);
+        ])->assignRole('Admin');
     }
 }

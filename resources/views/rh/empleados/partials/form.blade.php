@@ -12,15 +12,6 @@
     
     <div class="col-5">
         <div class="form-group">
-            {!! Form::label('imagen', 'Foto del Empleado') !!}
-            {!! Form::file('photo')  !!}        
-        </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-6">
-        <div class="form-group">
             {!! Form::label('apellidos', 'Apellidos del empleado') !!}
             {!! Form::text('apellidos',null, ['class' => 'form-control', 'placeholder' => 'Apellidos del empleado']) !!}
         
@@ -29,7 +20,16 @@
             @enderror
         </div>
     </div>
-    <div class="col-6">
+</div>
+
+<div class="row">
+    <div class="col-4">
+        <div class="form-group">
+            {!! Form::label('imagen', 'Foto del Empleado') !!}
+            {!! Form::file('photo')  !!}        
+        </div>
+    </div>
+    <div class="col-4">
         <div class="form-group">
             {!! Form::label('documento', 'Documento / CI') !!}
             {!! Form::number('documento',null, ['class' => 'form-control', 'placeholder' => 'Documento del empleado']) !!}
@@ -40,9 +40,20 @@
         </div>
         
     </div>
+    <div class="col-4">
+        <div class="form-group">
+            {!! Form::label('nro_legajo', 'Nro. Legajo') !!}
+            {!! Form::number('nro_legajo',null, ['class' => 'form-control', 'placeholder' => 'Nro. de Legajo']) !!}
+        
+            @error('documento')
+                <span class="text-danger">{{$message}}</span>
+            @enderror
+        </div>
+        
+    </div>
 </div>
 <div class="row">
-    <div class="col-12">
+    <div class="col-9">
         <div class="form-group">
             {!! Form::label('direcciones', 'Direcci&oacute;n') !!}
             {!! Form::text('direcciones',null, ['class' => 'form-control', 'placeholder' => 'Direcci&oacute;n']) !!}
@@ -51,7 +62,17 @@
                 <span class="text-danger">{{$message}}</span>
             @enderror
         </div>        
-    </div>    
+    </div> 
+    <div class="col-3">
+        <div class="form-group">
+            {!! Form::label('telefono', 'Tel&eacute;fono') !!}
+            {!! Form::text('telefono',null, ['class' => 'form-control', 'placeholder' => 'Tel&eacute;fono']) !!}
+        
+            @error('direcciones')
+                <span class="text-danger">{{$message}}</span>
+            @enderror
+        </div>        
+    </div>       
 </div>
 <div class="row">
     <div class="col-4">
@@ -152,6 +173,52 @@
     </div>
 </div>
 
+
+<div class="card card-red">
+    <div class="card-header">
+        Datos Familiares
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-6">
+               <div class="form-group">
+                    {!! Form::label('fec_ingreso', 'Fec. Ingreso') !!}
+                    {!! Form::date('fec_ingreso',null, ['class' => 'form-control', 'placeholder' => 'Fec. Ingreso']) !!}
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    {!! Form::label('estado_civil', 'Estado Civil') !!}
+                    <div class="form-check">
+                        {!! Form::radio('estado_civil', 'S',null,['class' => 'form-check-input']) !!}Soltero/a &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {!! Form::radio('estado', 'C',null,['class' => 'form-check-input']) !!}Casado/a
+                        {!! Form::radio('estado_civil', 'A',null,['class' => 'form-check-input']) !!}Acompañado/a &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {!! Form::radio('estado', 'C',null,['class' => 'form-check-input']) !!}Divorciado/a
+                        {!! Form::radio('estado_civil', 'A',null,['class' => 'form-check-input']) !!}Acompañado/a &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {!! Form::radio('estado', 'C',null,['class' => 'form-check-input']) !!}Divorciado/a
+                    </div>  
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <div class="form-group">
+                    {!! Form::label('cargo_id', 'Cargo del Empleado') !!}
+                    {!! Form::select('cargo_id',$cargos, null, ['class' => 'form-control', 'placeholder' => 'Cargo del Empleado']) !!}
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    {!! Form::label('seccion_id', 'Secci&oacute;n del Empleado') !!}
+                    {!! Form::select('seccion_id',$secciones, null, ['class' => 'form-control', 'placeholder' => 'Secci&oacute;n del Empleado']) !!}
+                </div>
+            </div>
+            <div class="col-4"> 
+                <div class="form-group"> 
+                    {!! Form::label('sucursal_id', 'Sucursal del Empleado') !!}
+                    {!! Form::select('sucursal_id',$sucursales, null, ['class' => 'form-control', 'placeholder' => 'Sucursal del Empleado']) !!}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 

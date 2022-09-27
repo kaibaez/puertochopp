@@ -11,6 +11,7 @@ use App\Models\Rh\Cargo;
 use App\Models\Rh\Empleado;
 use App\Models\Rh\Seccion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class EmpleadoController extends Controller
 {
@@ -57,61 +58,114 @@ class EmpleadoController extends Controller
             'apellidos'   => 'required',
             'documento'   => 'required|unique:empleados',
             'direcciones'   => 'required',
-            'pais_id' => 'required',    
+            /*'pais_id' => 'required',    
             'ciudad_id' => 'required',    
             'barrio_id' => 'required',  
             'fec_nacimiento' => 'required',
             'salario' => 'required',
             'salario_ips' => 'required',
             'anticipo' => 'required',
-            'estado' => 'required',
+            'estado' => 'required'*/
         ]);
-        $empleado = Empleado::create($request->all());
+
+
+        $preEmpleado = $request->all();     
+        if ($request->hasFile('photo')){
+            $foto = $request->file('photo')->store('public/empleados');  
+            $preEmpleado['photo'] = Storage::url($foto);
+        }
+        
+            
+        $empleado = Empleado::create($preEmpleado);
         return redirect()->route('rh.empleados.index')->with('store','Empleamdo ha sido creado');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  Empleado $empleado
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Empleado $empleado)
     {
-        //
+        $ciudades = Ciudad::all()->sortBy('id', SORT_NATURAL | SORT_FLAG_CASE)->pluck('descripcion', 'id');
+        $paises = Pais::all()->sortBy('id', SORT_NATURAL | SORT_FLAG_CASE)->pluck('descripcion', 'id');
+        $barrios = Barrio::all()->sortBy('id', SORT_NATURAL | SORT_FLAG_CASE)->pluck('descripcion', 'id');
+        $cargos = Cargo::all()->sortBy('id', SORT_NATURAL | SORT_FLAG_CASE)->pluck('descripcion', 'id');
+        $secciones = Seccion::all()->sortBy('id', SORT_NATURAL | SORT_FLAG_CASE)->pluck('descripcion', 'id');
+        $sucursales = Sucursal::all()->sortBy('id', SORT_NATURAL | SORT_FLAG_CASE)->pluck('descripcion', 'id');
+        
+
+        return view('rh.empleados.show', compact('empleado','ciudades','paises','barrios','cargos','secciones','sucursales'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int  Empleado $empleado
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Empleado $empleado)
     {
-        //
+        $ciudades = Ciudad::all()->sortBy('id', SORT_NATURAL | SORT_FLAG_CASE)->pluck('descripcion', 'id');
+        $paises = Pais::all()->sortBy('id', SORT_NATURAL | SORT_FLAG_CASE)->pluck('descripcion', 'id');
+        $barrios = Barrio::all()->sortBy('id', SORT_NATURAL | SORT_FLAG_CASE)->pluck('descripcion', 'id');
+        $cargos = Cargo::all()->sortBy('id', SORT_NATURAL | SORT_FLAG_CASE)->pluck('descripcion', 'id');
+        $secciones = Seccion::all()->sortBy('id', SORT_NATURAL | SORT_FLAG_CASE)->pluck('descripcion', 'id');
+        $sucursales = Sucursal::all()->sortBy('id', SORT_NATURAL | SORT_FLAG_CASE)->pluck('descripcion', 'id');
+        
+
+        return view('rh.empleados.edit', compact('empleado', 'ciudades','paises','barrios','cargos','secciones','sucursales'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int  Empleado $empleado
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Empleado $empleado)
     {
-        //
+        $request->validate([
+            'nombres'   => 'required',
+            'apellidos'   => 'required',
+            'documento'   => "required|unique:empleados,documento,$empleado->id",
+            'direcciones'   => 'required',
+            /*'pais_id' => 'required',    
+            'ciudad_id' => 'required',    
+            'barrio_id' => 'required',  
+            'fec_nacimiento' => 'required',
+            'salario' => 'required',
+            'salario_ips' => 'required',
+            'anticipo' => 'required',
+            'estado' => 'required',*/
+            
+        ]);
+
+
+        $preEmpleado = $request->all();        
+        if ($request->hasFile('photo')){
+            if ( Storage::exists($empleado->photo)){
+                Storage::detele($empleado->photo);
+            }
+            $foto = $request->file('photo')->store('public/empleados');  
+            $preEmpleado['photo'] = Storage::url($foto);
+        }
+        
+        $empleado->update($preEmpleado);
+        return redirect()->route('rh.empleados.index')->with('update','El Empleado ha sido actualizado');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  Empleado $empleado
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Empleado $empleado)
     {
-        //
+        $empleado->delete();
+        return redirect()->route('rh.empleados.index')->with('destroy', 'El Empleado se ha eliminado con Éxito');
     }
 }
