@@ -50,9 +50,10 @@
                                 <form action="{{route('rh.empleados.destroy', $empleado)}}" method="POST">
                                     @csrf
                                     @method('delete')
-                                    <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-edit"></i></button>
+                                    <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></button>
                                 </form>
                             </td>
+                            <td width="3px"><a class="btn btn-warning btn-xs" href="{{route('empleadoView', $empleado)}}"><i class="fa fa-print"></i></a></td>
                         </tr>
                     @endforeach
                     <tr>

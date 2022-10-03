@@ -7,8 +7,11 @@ use App\Http\Controllers\Bs\SucursalController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Rh\CargoController;
 use App\Http\Controllers\Rh\EmpleadoController;
+use App\Http\Controllers\Rh\EmpleadoPDFController;
 use App\Http\Controllers\Rh\NotasController;
+use App\Http\Controllers\Rh\PermisoController;
 use App\Http\Controllers\Rh\SeccionController;
+use App\Http\Controllers\Rh\TipoPermisoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -52,7 +55,13 @@ Route::resource('cargos', CargoController::class)->names('rh.cargos');
 Route::resource('seccion', SeccionController::class)->names('rh.secciones');
 Route::resource('empleados', EmpleadoController::class)->names('rh.empleados');
 Route::resource('notas', NotasController::class)->names('rh.notas');
+Route::resource('tipo_permisos', TipoPermisoController::class)->names('rh.tipo_permisos');
+Route::resource('permisos', PermisoController::class)->names('rh.permisos');
 
+
+##PDF
+Route::get('/empleadospdf/{id}', [EmpleadoPDFController::class, 'PDFEmpleado'])->name('empleadoView');
+//Route::get('/empleadospdf', EmpleadoPDFController::class)->name('empleadoView');
 
 
 ##Sistema Base Bs --------------------------------------

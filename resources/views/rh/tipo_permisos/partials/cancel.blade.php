@@ -1,0 +1,1 @@
+<a class="btn btn-secondary" href="{{ route('rh.empleados.index') }}">Cancelar</a>

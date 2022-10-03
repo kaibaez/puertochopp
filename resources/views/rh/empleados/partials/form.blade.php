@@ -43,7 +43,7 @@
     <div class="col-4">
         <div class="form-group">
             {!! Form::label('nro_legajo', 'Nro. Legajo') !!}
-            {!! Form::number('nro_legajo',null, ['class' => 'form-control', 'placeholder' => 'Nro. de Legajo']) !!}
+            {!! Form::text('nro_legajo',null, ['class' => 'form-control', 'placeholder' => 'Nro. de Legajo']) !!}
         
             @error('documento')
                 <span class="text-danger">{{$message}}</span>
@@ -53,7 +53,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-9">
+    <div class="col-6">
         <div class="form-group">
             {!! Form::label('direcciones', 'Direcci&oacute;n') !!}
             {!! Form::text('direcciones',null, ['class' => 'form-control', 'placeholder' => 'Direcci&oacute;n']) !!}
@@ -72,14 +72,24 @@
                 <span class="text-danger">{{$message}}</span>
             @enderror
         </div>        
-    </div>       
+    </div>
+    <div class="col-3">
+        <div class="form-group">
+            {!! Form::label('email', 'Email') !!}
+            {!! Form::text('email',null, ['class' => 'form-control', 'placeholder' => 'Email']) !!}
+        
+            @error('email')
+                <span class="text-danger">{{$message}}</span>
+            @enderror
+        </div>        
+    </div>              
 </div>
 <div class="row">
     <div class="col-6">
         <div class="form-group">
             {!! Form::label('sexo', 'Sexo') !!}
                     <div class="form-check">
-                        {!! Form::radio('sexo', 'M',null,['class' => 'form-check-input']) !!}Masculino &nbsp;&nbsp;&nbsp;&nbsp; {!! Form::radio('sexo', 'F',null,['class' => 'form-check-input']) !!}Femenino  
+                        {!! Form::radio('sexo', 'M',null,['class' => 'form-check-input']) !!}Masculino &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {!! Form::radio('sexo', 'F',null,['class' => 'form-check-input']) !!}Femenino  
                     </div>  
         </div>
     </div>

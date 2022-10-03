@@ -13,9 +13,9 @@ return [
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Basic-Configuration
     |
     */
-
+    
     'title' => 'Puerto Chopp',
-    'title_prefix' => '',
+    'title_prefix' => 'Puerto Chopp | ',
     'title_postfix' => '',
 
     /*
@@ -85,8 +85,8 @@ return [
     'preloader' => [
         'enabled' => true,
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-            'alt' => 'AdminLTE Preloader Image',
+            'path' => 'vendor/adminlte/dist/img/puertoLogo.png',
+            'alt' => 'Puerto Chopp',
             'effect' => 'animation__shake',
             'width' => 60,
             'height' => 60,
@@ -292,7 +292,7 @@ return [
                     'url'  => 'empleados',
                 ],
                 [
-                    'text' => 'Permissos',
+                    'text' => 'Permisos',
                     'icon'    => 'fa fa-share',
                     'url'  => 'permisos',
                     
@@ -300,25 +300,7 @@ return [
                 [
                     'text' => 'Asistencias',
                     'url'  => 'asistencias',
-                ],
-                [
-                    'text' => 'Secciones',
-                    'icon'    => 'fa fa-share',
-                    'url'  => 'seccion',
-                    
-                ],
-                [
-                    'text' => 'Cargos',
-                    'url'  => 'cargos',
-                ],
-                [
-                    'text' => 'Recibos Salariales',
-                    'url'  => 'Recibos',
-                ],
-                [
-                    'text' => 'Sueldos, Jornales, Descuentos',
-                    'url'  => 'sueldos',
-                ],
+                ],                
                 [
                     'text' => 'Horas Extras',
                     'url'  => 'horasextras',
@@ -328,6 +310,48 @@ return [
                     'icon' => 'fa fa-notes-medical',
                     'url'  => 'notas',
                 ],
+                [
+                    'text' => 'Salario',
+                    'url'  => '#',
+                    'icon'    => 'fas fa-setting',
+                    'submenu' => [
+                        [
+                            'text' => 'Sueldos y Jornales',
+                            'icon'    => 'fa fa-user-times',
+                            'url'  => 'sueldos',
+                        ],
+                        [
+                            'text' => 'Recibos Salariales',
+                            'url'  => 'recibos',
+                        ],
+                        [
+                            'text' => 'Tipo de Permisos',
+                            'url'  => 'tipo_permisos',
+                        ],
+                    ],
+
+                ],  
+                [
+                    'text' => 'Configuración',
+                    'url'  => '#',
+                    'icon'    => 'fas fa-setting',
+                    'submenu' => [
+                        [
+                            'text' => 'Secciones',
+                            'icon'    => 'fa fa-user-times',
+                            'url'  => 'seccion',
+                        ],
+                        [
+                            'text' => 'Cargos',
+                            'url'  => 'cargos',
+                        ],
+                        [
+                            'text' => 'Tipo de Permisos',
+                            'url'  => 'tipo_permisos',
+                        ],
+                    ],
+
+                ],  
             ],
         ],
         [

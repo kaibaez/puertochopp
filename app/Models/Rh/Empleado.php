@@ -31,6 +31,7 @@ class Empleado extends Model
         'estado',
         'fec_ingreso',
         'cargo_id',
+        'email', 
         'seccion_id',
         'sucursal_id',
 

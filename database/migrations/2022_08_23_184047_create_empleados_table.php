@@ -34,6 +34,7 @@ class CreateEmpleadosTable extends Migration
             $table->integer('salario')->nullable();
             $table->integer('salario_ips')->nullable();
             $table->integer('anticipo')->nullable();
+            $table->text('email','200')->nullable();
 
             $table->date('fec_ingreso')->nullable();
 

@@ -10,6 +10,7 @@ use App\Models\Bs\Sucursal;
 use App\Models\Rh\Cargo;
 use App\Models\Rh\Empleado;
 use App\Models\Rh\Seccion;
+use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -168,4 +169,7 @@ class EmpleadoController extends Controller
         $empleado->delete();
         return redirect()->route('rh.empleados.index')->with('destroy', 'El Empleado se ha eliminado con Éxito');
     }
+
+
+   
 }
