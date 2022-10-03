@@ -75,6 +75,22 @@
     </div>       
 </div>
 <div class="row">
+    <div class="col-6">
+        <div class="form-group">
+            {!! Form::label('sexo', 'Sexo') !!}
+                    <div class="form-check">
+                        {!! Form::radio('sexo', 'M',null,['class' => 'form-check-input']) !!}Masculino &nbsp;&nbsp;&nbsp;&nbsp; {!! Form::radio('sexo', 'F',null,['class' => 'form-check-input']) !!}Femenino  
+                    </div>  
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-group">
+            {!! Form::label('fec_nacimiento', 'Fec.Nacimiento') !!}
+            {!! Form::date('fec_nacimiento',null, ['class' => 'form-control', 'placeholder' => 'Fec. Nacimiento']) !!}
+        </div>
+    </div>
+</div>
+<div class="row">
     <div class="col-4">
         <div class="form-group">
             {!! Form::label('pais_id', 'Nacionalidad / Pais') !!}
@@ -91,14 +107,6 @@
         <div class="form-group">
             {!! Form::label('barrio_id', 'Barrio de Residencia') !!}
             {!! Form::select('barrio_id',$barrios, null, ['class' => 'form-control', 'placeholder' => 'Barrio de Residencia']) !!}
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-12">
-        <div class="form-group">
-            {!! Form::label('fec_nacimiento', 'Fec.Nacimiento') !!}
-            {!! Form::date('fec_nacimiento',null, ['class' => 'form-control', 'placeholder' => 'Fec. Nacimiento']) !!}
         </div>
     </div>
 </div>

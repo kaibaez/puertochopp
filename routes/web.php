@@ -4,6 +4,7 @@ use App\Http\Controllers\Bs\BarrioController;
 use App\Http\Controllers\Bs\CiudadController;
 use App\Http\Controllers\Bs\PaisController;
 use App\Http\Controllers\Bs\SucursalController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Rh\CargoController;
 use App\Http\Controllers\Rh\EmpleadoController;
 use App\Http\Controllers\Rh\NotasController;
@@ -41,9 +42,11 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+
+    Route::resource('home', HomeController::class)->names('home');
+    /*Route::get('/home', function () {
+        return view('home');
+    })->name('home');*/
 
 Route::resource('cargos', CargoController::class)->names('rh.cargos');
 Route::resource('seccion', SeccionController::class)->names('rh.secciones');
